@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity, Button } from 'react-native'
 import QRCode from 'react-native-qrcode-svg'
 
-function ButtonsQR() {
+function ButtonsQR(props:any) {
+
     const [qrValue, setQrValue] = useState('');
+    const {twitter,facebook,instagram,whatsapp} = props
 
     return (
         
@@ -21,34 +23,41 @@ function ButtonsQR() {
                     logoBorderRadius={15}
                     logoBackgroundColor="yellow"
                 />
+                
                 <View style={{ margin: 30 }}>
                     <TouchableOpacity style={styles.button} >
                         <Button 
                             title="Twitter"
                             color="#00ACEE"
+                            onPress={()=>setQrValue(twitter)}
                         ></Button>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.button} >
                         <Button 
                             title="Facebook"
                             color="#3B5998"
+                            onPress={()=>setQrValue(facebook)}
                         ></Button>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.button} >
                         <Button 
                             title="Instagram"
                             color="#8A3AB9"
+                            onPress={()=>setQrValue(instagram)}
                         ></Button>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.button} >
                         <Button 
                             title="WhatsApp"
                             color="#128C7E"
+                            onPress={()=>setQrValue(whatsapp)}
                         ></Button>
                     </TouchableOpacity>
                 </View>
             </View> 
+            <View>
             
+            </View>
         </SafeAreaView>
         
     )

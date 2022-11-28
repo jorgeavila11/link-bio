@@ -11,7 +11,17 @@ const Stack = createStackNavigator();
 function MyStack() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Home" component={Home} /> 
+      <Stack.Screen name="Home" component={Home} 
+        options={{
+          title:"Home",          
+          headerStyle:{
+            backgroundColor:'#ddd',            
+          },
+          headerTintColor:"#000"
+        
+        }}
+      
+      /> 
       <Stack.Screen name="Formulario de Cadastro" component={FormCadastro} />       
     </Stack.Navigator>
   );

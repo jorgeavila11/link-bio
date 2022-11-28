@@ -4,12 +4,24 @@ import ButtonsQR from '../components/ButtonsQR'
 import Buttons from './Buttons'
 import FormCadastro from './FormCadastro'
 
-function Home({navigation}) {
+const Home = ({navigation,route}) => {
+
+    const twitter = route.params?.twitter
+    const facebook = route.params?.facebook
+    const instagram = route.params?.instagram
+    const whatsapp = route.params?.whatsapp
+
+
     return (
         <View>
             <View style={style.text}>
             <Text onPress={() => navigation.navigate('Formulario de Cadastro')} >Editar</Text>
-            </View>            
+            {/* <Text>Twitter: {twitter}</Text> 
+            <Text>Twitter: {facebook}</Text> 
+            <Text>Twitter: {instagram}</Text> 
+            <Text>Twitter: {whatsapp}</Text>  */}
+            </View>
+                       
             {/* <View style={style.text}>
                 <Button
                     title="Editar"
@@ -17,7 +29,7 @@ function Home({navigation}) {
                 />
             </View> */}
             <View style={{marginTop:300}}>                
-                <ButtonsQR />
+                <ButtonsQR twitter={twitter} facebook={facebook} instagram={instagram} whatsapp={whatsapp} />
             </View>
         </View>
     )

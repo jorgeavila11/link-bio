@@ -1,15 +1,20 @@
 import React, { useState } from 'react'
 import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity, Linking } from 'react-native'
 
-function FormCadastro() {
+function FormCadastro({navigation}) {
 
 
     const [textTwitter, settextTwitter] = useState('');
     const [textFacebook, settextFacebook] = useState('');
-    const [textInstagran, settextInstagran] = useState('');
+    const [textInstagram, settextInstagram] = useState('');
     const [textWhatsApp, settextWhatsApp] = useState('');
 
-
+    const imprimir = () =>{
+        console.log(textTwitter)
+        console.log(textFacebook)
+        console.log(textInstagram)
+        console.log(textWhatsApp)
+    }
     return (        
         <View style={styles.container}>                        
             <Text style={styles.text}>URL Twitter:</Text>
@@ -29,8 +34,8 @@ function FormCadastro() {
             <Text style={styles.text}>URL Instagran:</Text>
             <TextInput
                 style={styles.textInput}
-                onChangeText={(textInstagran) => settextInstagran(textInstagran)}
-                value={textInstagran}
+                onChangeText={(textInstagran) => settextInstagram(textInstagran)}
+                value={textInstagram}
                 placeholder="Sua url do Instagran aqui"
             />
             <Text style={styles.text}>URL WhatsApp:</Text>
@@ -43,6 +48,7 @@ function FormCadastro() {
             <TouchableOpacity style={styles.button} >
                 <Button
                  title="Voltar" 
+                 onPress={() => navigation.navigate('Home',{twitter:textTwitter,facebook:textFacebook,instagram:textInstagram,whatsapp:textWhatsApp})}
                 ></Button>
             </TouchableOpacity>
         </View>
@@ -73,7 +79,8 @@ const styles = StyleSheet.create({
         marginTop: 10,        
         marginRight: 10,        
         borderWidth: 1,
-        padding:10
+        padding:10,
+        backgroundColor:'#fff'
     },
     button: {
         height: 40,
